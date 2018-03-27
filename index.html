@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>IBM@TalentLand</title>
+</head>
+
+<body>  
+    <script id="shader-fs" type="x-shader/x-fragment">
+        #ifdef GL_ES
+            precision highp float;
+        #endif
+        void main(void) {
+//            gl_FragColor = vec4(0.2, 0.3, 0.4, 1.0);
+            gl_FragColor = vec4(0.4, 0.8, 1, 1.0);
+        }
+    </script>
+
+    <script id="shader-vs" type="x-shader/x-vertex">
+    	attribute vec3 vertexPosition;
+        uniform mat4 modelViewMatrix;
+        uniform mat4 perspectiveMatrix;
+
+        void main(void) {
+            gl_Position = perspectiveMatrix * modelViewMatrix * vec4(  vertexPosition, 1.0);
+        }
+    </script>
+
+    <canvas id="c" ></canvas>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
+    <script  src="js/index.js"></script>
+
+</body>
+</html>
